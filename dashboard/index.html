@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portal enterprise da Shannon: acompanhamento de contrato, capacidade orbital dedicada e workloads da Claude. Console conceitual com dados simulados." />
+  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="robots" content="noindex" />
+  <title>Shannon — Portal Enterprise Claude</title>
+  <link rel="stylesheet" href="../assets/base.css" />
+  <link rel="stylesheet" href="../assets/dashboard.css" />
+  <link rel="stylesheet" href="../assets/betty.css" />
+  <script src="../assets/dashboard.js" defer></script>
+  <script src="../assets/betty.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-region">Pular para o conteúdo</a>
+
+  <div class="dashboard-shell">
+    <aside class="sidebar" aria-label="Navegação do portal">
+      <a class="brand" href="../index.html" aria-label="Shannon — voltar ao site">
+        <img src="../assets/images/logo-shannon-transparent.png" alt="Shannon" width="1774" height="139" decoding="async" />
+      </a>
+
+      <section class="client-summary" aria-label="Contrato simulado">
+        <span class="client-label">Cliente conceito</span>
+        <strong>Claude</strong>
+        <span>Dedicated Orbital Capacity</span>
+      </section>
+
+      <nav class="nav" aria-label="Áreas do portal">
+        <a href="#overview" data-view="overview">Visão geral</a>
+        <a href="#capacity" data-view="capacity">Capacidade</a>
+        <a href="#constellation" data-view="constellation">Órbita dedicada</a>
+        <a href="#workloads" data-view="workloads">Workloads</a>
+        <a href="#value" data-view="value">Financeiro</a>
+        <a href="#support" data-view="support">Suporte</a>
+      </nav>
+
+      <button class="betty-launch" type="button" data-betty-open aria-label="Abrir Betty" aria-haspopup="dialog" aria-controls="betty-panel">
+        <span>Betty Assistant</span>
+      </button>
+
+      <p class="sidebar-note">
+        Console conceitual. Dados simulados. Nenhuma infraestrutura orbital real é comandada por este MVP.
+      </p>
+    </aside>
+
+    <div class="workspace">
+      <main id="main-region" class="views" tabindex="-1">
+        <h1 id="view-title" class="sr-only">Visão geral</h1>
+
+        <section id="view-overview" class="view" data-view="overview" aria-labelledby="view-title">
+          <div id="overview-kpis" class="metric-grid"></div>
+
+          <div class="overview-grid">
+            <article id="overview-contract" class="panel"></article>
+            <article id="overview-capacity" class="panel"></article>
+            <article id="overview-alerts" class="panel"></article>
+            <article id="overview-review" class="panel"></article>
+          </div>
+        </section>
+
+        <section id="view-capacity" class="view" data-view="capacity" hidden aria-labelledby="view-title">
+          <div id="capacity-summary" class="metric-grid"></div>
+
+          <div class="content-grid">
+            <article class="panel">
+              <header class="panel-head">
+                <h2>Distribuição contratual</h2>
+              </header>
+              <div id="capacity-bars" class="panel-body"></div>
+            </article>
+
+            <article class="panel">
+              <header class="panel-head">
+                <h2>Fila gerenciada</h2>
+              </header>
+              <div id="capacity-queue" class="panel-body"></div>
+            </article>
+          </div>
+        </section>
+
+        <section id="view-constellation" class="view" data-view="constellation" hidden aria-labelledby="view-title">
+          <div id="constellation-summary" class="metric-grid"></div>
+
+          <div class="content-grid">
+            <article class="panel">
+              <header class="panel-head">
+                <h2>Órbita de processamento dedicada</h2>
+              </header>
+              <div id="constellation-modules" class="panel-body"></div>
+            </article>
+
+            <article class="panel">
+              <header class="panel-head">
+                <h2>Sinais de operação</h2>
+              </header>
+              <div id="constellation-health" class="panel-body"></div>
+            </article>
+          </div>
+        </section>
+
+        <section id="view-workloads" class="view" data-view="workloads" hidden aria-labelledby="view-title">
+          <div class="toolbar" aria-label="Filtros de workloads">
+            <label class="search-field" for="workload-search">
+              <span>Buscar</span>
+              <input id="workload-search" type="search" placeholder="Nome, tipo ou resultado" autocomplete="off" />
+            </label>
+
+            <label class="select-field" for="workload-status">
+              <span>Status</span>
+              <select id="workload-status">
+                <option value="all">Todos</option>
+                <option value="Em execução">Em execução</option>
+                <option value="Na fila">Na fila</option>
+                <option value="Programado">Programado</option>
+                <option value="Concluído">Concluído</option>
+                <option value="Em revisão">Em revisão</option>
+              </select>
+            </label>
+
+            <p id="workload-count" class="count" role="status"></p>
+          </div>
+
+          <div class="table-card">
+            <table class="workload-table">
+              <caption>Workloads gerenciados pela Shannon para o contrato Claude</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Workload</th>
+                  <th scope="col">Tipo</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Uso</th>
+                  <th scope="col">ETA</th>
+                  <th scope="col">Prioridade</th>
+                  <th scope="col">Resultado</th>
+                </tr>
+              </thead>
+              <tbody id="workload-body"></tbody>
+            </table>
+            <p id="workload-empty" class="empty-state" hidden>Nenhum workload corresponde aos filtros atuais.</p>
+          </div>
+        </section>
+
+        <section id="view-value" class="view" data-view="value" hidden aria-labelledby="view-title">
+          <div id="value-kpis" class="metric-grid"></div>
+          <div id="value-panels" class="content-grid"></div>
+        </section>
+
+        <section id="view-support" class="view" data-view="support" hidden aria-labelledby="view-title">
+          <div class="support-grid">
+            <article class="panel">
+              <header class="panel-head">
+                <h2>Alertas operacionais</h2>
+              </header>
+              <div id="alerts-list" class="panel-body"></div>
+            </article>
+
+            <article class="panel">
+              <header class="panel-head">
+                <h2>Solicitar aumento de capacidade</h2>
+              </header>
+              <form id="expansion-form" class="support-form" novalidate>
+                <label>
+                  <span>Tipo</span>
+                  <select id="request-type" name="type" required>
+                    <option value="">Selecione</option>
+                    <option>Revisão trimestral</option>
+                    <option>Pico temporário</option>
+                    <option>Órbita dedicada adicional</option>
+                    <option>Upgrade de plano financeiro</option>
+                  </select>
+                </label>
+
+                <label>
+                  <span>Motivo</span>
+                  <select id="request-reason" name="reason" required>
+                    <option value="">Selecione</option>
+                    <option>Fila acima do limite contratado</option>
+                    <option>Novo ciclo de workloads</option>
+                    <option>Previsão de demanda empresarial</option>
+                    <option>Mitigação de risco operacional</option>
+                  </select>
+                </label>
+
+                <label>
+                  <span>Capacidade adicional desejada</span>
+                  <input id="request-capacity" name="capacity" type="text" placeholder="Ex.: +57,6 MI GPU-h / mês" required />
+                </label>
+
+                <label>
+                  <span>Prioridade</span>
+                  <select id="request-priority" name="priority" required>
+                    <option>Normal</option>
+                    <option>Alta</option>
+                    <option>Crítica</option>
+                  </select>
+                </label>
+
+                <label class="wide">
+                  <span>Mensagem</span>
+                  <textarea id="request-message" name="message" rows="4" placeholder="Contexto da demanda, período esperado e impacto operacional." required></textarea>
+                </label>
+
+                <button class="primary-action" type="submit">Enviar solicitação simulada</button>
+                <p id="request-result" class="form-result" aria-live="polite"></p>
+              </form>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <aside id="drawer" class="drawer" role="dialog" aria-modal="false" aria-labelledby="drawer-title" aria-hidden="true" hidden>
+      <header class="drawer-head">
+        <div>
+          <p id="drawer-kicker">Workload</p>
+          <h2 id="drawer-title">Detalhe</h2>
+        </div>
+        <button id="drawer-close" class="icon-button" type="button" aria-label="Fechar detalhe">×</button>
+      </header>
+      <div id="drawer-body" class="drawer-body"></div>
+    </aside>
+    <div id="drawer-scrim" class="drawer-scrim" hidden></div>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

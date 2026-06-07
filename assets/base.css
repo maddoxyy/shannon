@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap');
+
+/* Reset e regras-base comuns às duas páginas. Tokens de cor e tipografia ficam
+   em styles.css (landing) e dashboard.css (console) — são paletas distintas. */
+
+*{ box-sizing:border-box; margin:0; padding:0; }
+img{ display:block; max-width:100%; }
+a{ color:inherit; text-decoration:none; }
+button{ font:inherit; color:inherit; }
+::selection{ background:rgba(255,255,255,.18); color:#fff; }
+:focus-visible{ outline:2px solid rgba(255,255,255,.75); outline-offset:3px; border-radius:2px; }
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    scroll-behavior:auto !important;
+    transition-duration:.01ms !important;
+  }
+}
