@@ -1,4 +1,7 @@
 # Shannon
+![HTML5](https://shields.io)
+![CSS3](https://shields.io)
+![JavaScript](https://shields.io)
 
 Simulação acadêmica para Global Solution / FIAP de uma plataforma fictícia de computação
 orbital sob demanda. São duas páginas estáticas:
