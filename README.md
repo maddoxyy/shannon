@@ -3,6 +3,8 @@
 Simulação acadêmica (Global Solution / FIAP) de uma plataforma fictícia de computação
 orbital sob demanda. São duas páginas estáticas:
 
+Veja mais em: [https://maddoxyy.github.io/shannon/](https://maddoxyy.github.io/shannon/)
+
 - `index.html` — site de apresentação (landing).
 - `dashboard/index.html` — console conceitual de um cliente enterprise ("Claude"):
   capacidade contratada, workloads, órbita dedicada, financeiro e suporte.
